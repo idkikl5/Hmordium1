@@ -1,0 +1,600 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Hmordium",
+    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+    LoadingTitle = "Hmordium",
+    LoadingSubtitle = "by Sussy_end",
+    ShowText = "Rayfield", -- for mobile users to unhide rayfield, change if you'd like
+    Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+ 
+    ToggleUIKeybind = "K", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
+ 
+    DisableRayfieldPrompts = false,
+    DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+ 
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = nil, -- Create a custom folder for your hub/game
+       FileName = "Hmordium"
+    },
+ 
+    Discord = {
+       Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+       Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
+       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+ 
+    KeySystem = true, -- Set this to true to use our key system
+    KeySettings = {
+       Title = "Untitled",
+       Subtitle = "Key System",
+       Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = {"maty"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+    }
+ })
+
+ local PlayerTab = Window:CreateTab("Player", 4483362458) -- Title, Image
+
+ local Slider = PlayerTab:CreateSlider({
+    Name = "WalkSpeed Slider",
+    Range = {1, 350},
+    Increment = 1,
+    Suffix = "Speed",
+    CurrentValue = 16,
+    Flag = "sliderws",
+    Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
+    end
+})
+
+local Slider = PlayerTab:CreateSlider({
+    Name = "Jump Height",
+    Range = {10, 500},
+    Increment = 1,
+    Suffix = "Height",
+    CurrentValue = 10,
+    Flag = "Slider3", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+     game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
+    end,
+ })
+
+local Button = PlayerTab:CreateButton({
+    Name = "Fly gui",
+    Callback = function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+    end,
+ })
+
+ local MainTab = Window:CreateTab("Main", 4483362458) -- Title, Image
+
+ local Button = MainTab:CreateButton({
+    Name = "Kill aura 1",
+    Callback = function()
+        local range = 15
+
+        local player = game:GetService("Players").LocalPlayer
+         
+        game:GetService("RunService").RenderStepped:Connect(function()
+            local p = game.Players:GetPlayers()
+            for i = 2, #p do local v = p[i].Character
+                if v and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") and player:DistanceFromCharacter(v.HumanoidRootPart.Position) <= range then
+                    local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+                    if tool and tool:FindFirstChild("Handle") then
+                        tool:Activate()
+                        for i,v in next, v:GetChildren() do
+                            if v:IsA("BasePart") then
+                                firetouchinterest(tool.Handle,v,0)
+                                firetouchinterest(tool.Handle,v,1)
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+    end,
+ })
+
+ local Button = MainTab:CreateButton({
+    Name = "Kill aura 2",
+    Callback = function()
+        --// Setting \--
+local range = 15
+ 
+--// Variable \--
+local player = game:GetService("Players").LocalPlayer
+ 
+--// Script \--
+game:GetService("RunService").RenderStepped:Connect(function()
+    local p = game.Players:GetPlayers()
+    for i = 2, #p do local v = p[i].Character
+        if v and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") and player:DistanceFromCharacter(v.HumanoidRootPart.Position) <= range then
+            local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+            if tool and tool:FindFirstChild("Handle") then
+                tool:Activate()
+                for i,v in next, v:GetChildren() do
+                    if v:IsA("BasePart") then
+                        firetouchinterest(tool.Handle,v,0)
+                        firetouchinterest(tool.Handle,v,1)
+                    end
+                end
+            end
+        end
+    end
+end)
+    end,
+ })
+
+ local Button = MainTab:CreateButton({
+    Name = "Kill aura 3",
+    Callback = function()
+        local range = 20
+
+        local player = game:GetService("Players").LocalPlayer
+         
+        game:GetService("RunService").RenderStepped:Connect(function()
+            local p = game.Players:GetPlayers()
+            for i = 2, #p do local v = p[i].Character
+                if v and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") and player:DistanceFromCharacter(v.HumanoidRootPart.Position) <= range then
+                    local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+                    if tool and tool:FindFirstChild("Handle") then
+                        tool:Activate()
+                        for i,v in next, v:GetChildren() do
+                            if v:IsA("BasePart") then
+                                firetouchinterest(tool.Handle,v,0)
+                                firetouchinterest(tool.Handle,v,1)
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+    end,
+ })
+
+ local Button = MainTab:CreateButton({
+    Name = "Kill aura 4",
+    Callback = function()
+        local range = 15
+
+local player = game:GetService("Players").LocalPlayer
+local UIS = game:GetService("UserInputService")
+local CoreGui = game:GetService("StarterGui")
+
+UIS.InputBegan:connect(function(input)
+	if input.KeyCode == rangeSubtractkeybind then
+	    if PreciseRange == true then
+	        range = range - 0.01
+	    else
+            range = range - 1
+        end
+        wait()
+        if DoNotDisturb == false then
+            game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Notification", Text = "the range was set to"..range})
+        end
+	end
+end)
+
+UIS.InputBegan:connect(function(input)
+	if input.KeyCode == rangeAddkeybind then
+	    if PreciseRange == true then
+	        range = range + 0.01
+	    else
+            range = range + 1
+        end
+        wait()
+        if DoNotDisturb == false then
+            game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Notification", Text = "the range was set to"..range})
+        end
+	end
+end)
+
+UIS.InputBegan:connect(function(input)
+	if input.KeyCode == TogglePreciseRange then
+        if PreciseRange == false then
+            PreciseRange = true
+            if DoNotDisturb == false then
+                game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Notification", Text = "the Precise range was set to true"})
+            end
+        else
+            PreciseRange = false
+            if DoNotDisturb == false then
+                game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Notification", Text = "the Precise range was set to false"})
+            end
+        end
+        
+	end
+end)
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    local p = game.Players:GetPlayers()
+    for i = 2, #p do local v = p[i].Character
+        if v and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and v:FindFirstChild("HumanoidRootPart") and player:DistanceFromCharacter(v.HumanoidRootPart.Position) <= range then
+            local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+            if tool and tool:FindFirstChild("Handle") then
+                tool:Activate()
+                for i,v in next, v:GetChildren() do
+                    if v:IsA("BasePart") then
+                        firetouchinterest(tool.Handle,v,0)
+                        firetouchinterest(tool.Handle,v,1)
+                    end
+                end
+            end
+        end
+    end
+end)
+
+if DoNotDisturb == false then
+    game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Script Load", Text = "the script loaded successfully!"})
+end
+    end,
+ })
+
+ local Button = MainTab:CreateButton({
+    Name = "Hovnoje123 gui (has a kill aura)",
+    Callback = function()
+        local player = game:GetService("Players").LocalPlayer
+local range = 20
+local auraEnabled = false  
+local autoEquipEnabled = false  
+
+-- GUI
+local screenGui = Instance.new("ScreenGui", game.CoreGui)
+local mainFrame = Instance.new("Frame")
+local titleLabel = Instance.new("TextLabel")
+local uicorner = Instance.new("UICorner")
+local auraButton = Instance.new("TextButton")
+local equipButton = Instance.new("TextButton")
+local crashButton = Instance.new("TextButton")
+local infiniteYieldButton = Instance.new("TextButton")
+local reloadButton = Instance.new("TextButton")
+local glowEffect = Instance.new("UIStroke")
+local authorLabel = Instance.new("TextLabel")
+local minimizeButton = Instance.new("TextButton")
+local rangeLabel = Instance.new("TextLabel")
+local decreaseRange = Instance.new("TextButton")
+local increaseRange = Instance.new("TextButton")
+
+-- Hlavní okno (moderní aplikace)
+mainFrame.Parent = screenGui
+mainFrame.Size = UDim2.new(0, 300, 0, 480)
+mainFrame.Position = UDim2.new(0.35, 0, 0.2, 0)
+mainFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+mainFrame.BackgroundTransparency = 0.1
+mainFrame.Active = true
+mainFrame.Draggable = true
+mainFrame.BorderSizePixel = 0
+mainFrame.ClipsDescendants = true
+
+-- Glow efekt
+glowEffect.Parent = mainFrame
+glowEffect.Thickness = 2
+glowEffect.Color = Color3.fromRGB(0, 255, 127)
+
+-- Zaoblení okrajů
+uicorner.CornerRadius = UDim.new(0, 15)
+uicorner.Parent = mainFrame
+
+-- Titulek aplikace
+titleLabel.Parent = mainFrame
+titleLabel.Size = UDim2.new(1, 0, 0, 40)
+titleLabel.Text = "⚔️ Kill Aura & Auto Equip ⚡"
+titleLabel.BackgroundTransparency = 1
+titleLabel.TextColor3 = Color3.fromRGB(0, 255, 127)
+titleLabel.Font = Enum.Font.SourceSansBold
+titleLabel.TextSize = 22
+titleLabel.TextXAlignment = Enum.TextXAlignment.Center
+
+-- Kill Aura tlačítko
+auraButton.Parent = mainFrame
+auraButton.Size = UDim2.new(0, 280, 0, 50)
+auraButton.Position = UDim2.new(0, 10, 0, 50)
+auraButton.Text = "🔥 Zapnout Kill Auru 🔥"
+auraButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+auraButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+auraButton.Font = Enum.Font.SourceSansBold
+auraButton.TextSize = 18
+
+-- Auto Equip tlačítko
+equipButton.Parent = mainFrame
+equipButton.Size = UDim2.new(0, 280, 0, 50)
+equipButton.Position = UDim2.new(0, 10, 0, 110)
+equipButton.Text = "🛡️ Zapnout Auto-Equip 🛡️"
+equipButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+equipButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+equipButton.Font = Enum.Font.SourceSansBold
+equipButton.TextSize = 18
+
+-- Crash Server tlačítko
+crashButton.Parent = mainFrame
+crashButton.Size = UDim2.new(0, 280, 0, 50)
+crashButton.Position = UDim2.new(0, 10, 0, 170)
+crashButton.Text = "💥 Crash Server 💥"
+crashButton.BackgroundColor3 = Color3.fromRGB(255, 50, 50)
+crashButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+crashButton.Font = Enum.Font.SourceSansBold
+crashButton.TextSize = 18
+
+-- Infinite Yield tlačítko
+infiniteYieldButton.Parent = mainFrame
+infiniteYieldButton.Size = UDim2.new(0, 280, 0, 50)
+infiniteYieldButton.Position = UDim2.new(0, 10, 0, 230)
+infiniteYieldButton.Text = "🧠 Spustit Infinite Yield"
+infiniteYieldButton.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+infiniteYieldButton.TextColor3 = Color3.fromRGB(200, 200, 255)
+infiniteYieldButton.Font = Enum.Font.SourceSansBold
+infiniteYieldButton.TextSize = 16
+
+-- Reload GUI tlačítko
+reloadButton.Parent = mainFrame
+reloadButton.Size = UDim2.new(0, 280, 0, 50)
+reloadButton.Position = UDim2.new(0, 10, 0, 290)
+reloadButton.Text = "🔁 Reload GUI"
+reloadButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+reloadButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+reloadButton.Font = Enum.Font.SourceSansBold
+reloadButton.TextSize = 16
+
+-- Range label
+rangeLabel.Parent = mainFrame
+rangeLabel.Size = UDim2.new(0, 280, 0, 20)
+rangeLabel.Position = UDim2.new(0, 10, 0, 350)
+rangeLabel.Text = "🎯 Range: " .. tostring(range)
+rangeLabel.BackgroundTransparency = 1
+rangeLabel.TextColor3 = Color3.fromRGB(150, 255, 150)
+rangeLabel.Font = Enum.Font.SourceSansBold
+rangeLabel.TextSize = 16
+rangeLabel.TextXAlignment = Enum.TextXAlignment.Center
+
+-- Snížit Range
+decreaseRange.Parent = mainFrame
+decreaseRange.Size = UDim2.new(0, 130, 0, 30)
+decreaseRange.Position = UDim2.new(0, 10, 0, 375)
+decreaseRange.Text = "➖ Snížit Range"
+decreaseRange.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+decreaseRange.TextColor3 = Color3.fromRGB(255, 255, 255)
+decreaseRange.Font = Enum.Font.SourceSansBold
+decreaseRange.TextSize = 14
+
+-- Zvýšit Range
+increaseRange.Parent = mainFrame
+increaseRange.Size = UDim2.new(0, 130, 0, 30)
+increaseRange.Position = UDim2.new(0, 150, 0, 375)
+increaseRange.Text = "➕ Zvýšit Range"
+increaseRange.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+increaseRange.TextColor3 = Color3.fromRGB(255, 255, 255)
+increaseRange.Font = Enum.Font.SourceSansBold
+increaseRange.TextSize = 14
+
+-- Minimize button
+minimizeButton.Parent = mainFrame
+minimizeButton.Size = UDim2.new(0, 25, 0, 25)
+minimizeButton.Position = UDim2.new(1, -30, 0, 5)
+minimizeButton.Text = "-"
+minimizeButton.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+minimizeButton.Font = Enum.Font.SourceSansBold
+minimizeButton.TextSize = 18
+
+local isMinimized = false
+
+minimizeButton.MouseButton1Click:Connect(function()
+    isMinimized = not isMinimized
+    for _, v in ipairs(mainFrame:GetChildren()) do
+        if v ~= titleLabel and v ~= minimizeButton and (v:IsA("TextButton") or v:IsA("TextLabel")) then
+            v.Visible = not isMinimized
+        end
+    end
+    mainFrame.Size = isMinimized and UDim2.new(0, 300, 0, 40) or UDim2.new(0, 300, 0, 480)
+end)
+
+-- Podpis
+authorLabel.Parent = mainFrame
+authorLabel.Size = UDim2.new(1, 0, 0, 20)
+authorLabel.Position = UDim2.new(0, 0, 1, -25)
+authorLabel.Text = "👑 Created by Hovnoje123 👑"
+authorLabel.BackgroundTransparency = 1
+authorLabel.TextColor3 = Color3.fromRGB(255, 215, 0)
+authorLabel.Font = Enum.Font.SourceSansBold
+authorLabel.TextSize = 16
+authorLabel.TextXAlignment = Enum.TextXAlignment.Center
+
+-- Funkce tlačítek
+auraButton.MouseButton1Click:Connect(function()
+    auraEnabled = not auraEnabled
+    auraButton.Text = auraEnabled and "❌ Vypnout Kill Auru ❌" or "🔥 Zapnout Kill Auru 🔥"
+    auraButton.BackgroundColor3 = auraEnabled and Color3.fromRGB(255, 0, 0) or Color3.fromRGB(50, 50, 50)
+end)
+
+equipButton.MouseButton1Click:Connect(function()
+    autoEquipEnabled = not autoEquipEnabled
+    equipButton.Text = autoEquipEnabled and "❌ Vypnout Auto-Equip ❌" or "🛡️ Zapnout Auto-Equip 🛡️"
+    equipButton.BackgroundColor3 = autoEquipEnabled and Color3.fromRGB(255, 0, 0) or Color3.fromRGB(50, 50, 50)
+end)
+
+crashButton.MouseButton1Click:Connect(function()
+    game.ReplicatedStorage.UnlockedSwords:FireServer({true, true, true}, "894An3ti44Ex321P3llo99i3t")
+end)
+
+infiniteYieldButton.MouseButton1Click:Connect(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()
+end)
+
+reloadButton.MouseButton1Click:Connect(function()
+    screenGui:Destroy()
+    wait()
+    loadstring(game:HttpGet("https://your-script-url-here.com/script.lua"))()
+end)
+
+decreaseRange.MouseButton1Click:Connect(function()
+    range = math.max(1, range - 5)
+    rangeLabel.Text = "🎯 Range: " .. tostring(range)
+end)
+
+increaseRange.MouseButton1Click:Connect(function()
+    range = range + 5
+    rangeLabel.Text = "🎯 Range: " .. tostring(range)
+end)
+
+-- Kill Aura logic
+game:GetService("RunService").RenderStepped:Connect(function()
+    if not auraEnabled then return end
+
+    local players = game.Players:GetPlayers()
+    for i = 2, #players do 
+        local target = players[i].Character
+        if target and target:FindFirstChild("Humanoid") and target.Humanoid.Health > 0 and target:FindFirstChild("HumanoidRootPart") and player:DistanceFromCharacter(target.HumanoidRootPart.Position) <= range then
+            local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+            if tool and tool:FindFirstChild("Handle") then
+                tool:Activate()
+                for _, part in pairs(target:GetChildren()) do
+                    if part:IsA("BasePart") then
+                        firetouchinterest(tool.Handle, part, 0)
+                        firetouchinterest(tool.Handle, part, 1)
+                    end
+                end
+            end
+        end
+    end
+end)
+
+-- Auto Equip logic
+game:GetService("RunService").RenderStepped:Connect(function()
+    if autoEquipEnabled then
+        local backpack = player.Backpack
+        for _, tool in ipairs(backpack:GetChildren()) do
+            if tool:IsA("Tool") and tool:FindFirstChild("Handle") then
+                tool.Parent = player.Character
+                break
+            end
+        end
+    end
+end)
+    end,
+ })
+
+ local Button = MainTab:CreateButton({
+    Name = "Op auto equip sword",
+    Callback = function()
+        local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local LP = Players.LocalPlayer
+
+local function forceEquip()
+    local char = LP.Character
+    if not char then return end
+    local humanoid = char:FindFirstChildWhichIsA("Humanoid")
+    if not humanoid then return end
+    local sword = LP.Backpack:FindFirstChild("Sword")
+    if sword and not char:FindFirstChild("Sword") then
+        humanoid:EquipTool(sword)
+    end
+end
+
+RunService.RenderStepped:Connect(forceEquip)
+
+LP.CharacterAdded:Connect(function(char)
+    char:WaitForChild("Humanoid")
+    char:WaitForChild("HumanoidRootPart")
+    forceEquip()
+end)
+    end,
+ })
+
+
+ local Button = MainTab:CreateButton({
+    Name = "Whitelist aura",
+    Callback = function()
+        local player = game:GetService("Players").LocalPlayer
+local range = 25
+local auraEnabled = true
+
+-- Whitelist hráčů podle jména
+local whitelist = {
+    "hghfhgfhgfhghfghfg",
+    "ZabijimRandomLidi4",
+    "FlexFightSecurity012",
+    "jaurova",
+    "FlexFightPro68",
+    "Cubot_Nova4",
+    "Cubot_Nova3",
+    "wzq0x9",
+    "Cub0t_01",
+    "wzq0x9",
+    "e5c4qe",
+    "angeloheart2x",
+    "xwnsgat",
+    "WeRroR22",
+    "fdgdfgfdgdfgda",
+    "Sigmaslim12",
+    "lovefr0ggy",
+    "FlexFightSecurity010",
+    "chill_guy134",
+    "viking_fa",
+    "YouFrCantMove",
+    "nvbnvbnvbnvbfghf",
+    "xwnsgat",
+}
+
+-- Funkce kontrolující, jestli je hráč na whitelistu
+local function isWhitelisted(targetPlayer)
+    for _, name in ipairs(whitelist) do
+        if targetPlayer.Name == name then
+            return true
+        end
+    end
+    return false
+end
+
+game:GetService("RunService").RenderStepped:Connect(function()
+    if not auraEnabled then return end
+
+    local players = game.Players:GetPlayers()
+    for _, targetPlayer in ipairs(players) do
+        if targetPlayer ~= player 
+           and not isWhitelisted(targetPlayer) 
+           and targetPlayer.Character then
+
+            local target = targetPlayer.Character
+            if target:FindFirstChild("Humanoid") 
+               and target.Humanoid.Health > 0 
+               and target:FindFirstChild("HumanoidRootPart") 
+               and player:DistanceFromCharacter(target.HumanoidRootPart.Position) <= range then
+
+                local tool = player.Character and player.Character:FindFirstChildOfClass("Tool")
+                if tool and tool:FindFirstChild("Handle") then
+                    tool:Activate()
+                    for _, part in pairs(target:GetChildren()) do
+                        if part:IsA("BasePart") then
+                            firetouchinterest(tool.Handle, part, 0)
+                            firetouchinterest(tool.Handle, part, 1)
+                        end
+                    end
+                end
+            end
+        end
+    end
+end)
+    end,
+ })
+
+ local Button = PlayerTab:CreateButton({
+    Name = "Infinite yield",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end,
+ })
+
+ local Button = PlayerTab:CreateButton({
+    Name = "Fe instant intereact script",
+    Callback = function()
+        game:GetService("ProximityPromptService").PromptButtonHoldBegan:Connect(function(prompt)
+            fireproximityprompt(prompt)
+          end)
+    end,
+ })
