@@ -598,3 +598,19 @@ end)
           end)
     end,
  })
+
+ local CreditsTab = Window:CreateTab("Credits", 4483362458) -- Title, Image
+
+ local Button = CreditsTab:CreateButton({
+    Name = "Credits: Sussy_end",
+    Callback = function()
+        print ("helloXD")
+    end,
+ })
+
+ local Button = CreditsTab:CreateButton({
+    Name = "Reviewed by:                                                                                                       Hovnoje123 and Sebinko XD",
+    Callback = function()
+        print ("helloXD")
+    end,
+ })
